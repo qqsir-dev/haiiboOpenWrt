@@ -7,6 +7,9 @@
 # Blog: https://p3terx.com
 #===============================================
 
+# Test kernel 6.1
+sed -i 's/5.15/6.1/g' target/linux/x86/Makefile
+
 # 修改默认IP
 # sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 
