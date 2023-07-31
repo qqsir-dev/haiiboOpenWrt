@@ -10,6 +10,9 @@
 # Test kernel 6.1
 sed -i 's/5.15/6.1/g' target/linux/x86/Makefile
 
+# Network Configuration
+sed -i "/exit/iuci set network.wan.ifname=\'eth2\'\nuci set network.wan.proto=\'pppoe\'\nuci set network.wan.username=\'990001257663\'\nuci set network.wan.password=\'u6s3x4r8\'\nuci set network.lan.netmask=\'255.255.255.0\'\nuci set network.lan.dns=\'119.29.29.29 223.5.5.5\'\nuci set network.lan.ip6assign=\'64\'\nuci set network.lan.ifname=\'eth0 eth1 eth3\'\nuci set network.wan6.ifname=\'@wan\'\nuci commit network\nuci set dhcp.lan.ignore=\'0\'\nuci set dhcp.lan.start=\'150\'\nuci set dhcp.lan.limit=\'100\'\nuci set dhcp.lan.ra_management=\'1\'\nuci add_list dhcp.lan.dhcp_option=\'6,114.114.114.114,119.29.29.29\'\nuci set dhcp.lan.force=\'1\'\nuci set dhcp.lan.ra=\'hybrid\'\nuci set dhcp.lan.ra_default=\'1\'\nuci commit dhcp\n" package/lean/default-settings/files/zzz-default-settings
+
 # 修改默认IP
 # sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 
